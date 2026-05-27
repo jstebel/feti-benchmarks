@@ -1,0 +1,310 @@
+- -             [ Msg , null, "00:00:00.391", "/src/coupling/application.cc", 297, "display_version" ]
+  - This is Flow123d, version 4.0.3dev commit: 65f385dc5
+- -             [ Msg , null, "00:00:00.391", "/src/coupling/application.cc", 299, "display_version" ]
+  - |
+    Branch: JS_feti
+    Build: May 26 2026, 12:15:11 flags:  -fPIC -pedantic -Wall -Wextra -Werror     -Wno-catch-value -Wno-deprecated-copy -Wno-misleading-indentation -Wno-implicit-fallthrough     -Wno-vla -Wno-unused-local-typedefs -Wno-deprecated-declarations
+    Fetch URL:  git@github.com:flow123d/flow123d.git
+- -             [ Wrn , null, "00:00:01.958", "/src/coupling/application.cc", 563, "run" ]
+  - Input file with version: '3.1.0' is no compatible with the program version: '4.0.3dev' 
+- -             [ Msg , null, "00:00:01.984", "/src/io/msh_gmshreader.cc", 58, "read_nodes" ]
+  - - Reading nodes...
+- -             [ Msg , null, "00:00:02.000", "/src/io/msh_gmshreader.cc", 85, "read_nodes" ]
+  - ... 280 nodes read. 
+- -             [ Msg , null, "00:00:02.000", "/src/io/msh_gmshreader.cc", 91, "read_elements" ]
+  - - Reading elements...
+- -             [ Msg , null, "00:00:02.082", "/src/io/msh_gmshreader.cc", 159, "read_elements" ]
+  - ... 1057 bulk elements, 413 boundary elements. 
+- -             [ Msg , null, "00:00:02.163", "/src/mesh/mesh.cc", 822, "make_neighbours_and_edges" ]
+  - Created 2367 edges and 152 neighbours.
+- -             [ Msg , null, "00:00:02.450", "/src/mesh/bc_mesh.cc", 203, "make_neighbours_and_edges" ]
+  - Created 644 edges and 6 neighbours on boundary mesh.
+- -             [ Msg , null, "00:00:02.494", "/src/mesh/mesh.cc", 1062, "check_and_finish" ]
+  - |
+    ----------- Table of all regions: -----------
+     - Boundary elementary regions -
+    name                  id dim
+    .IMPLICIT_BOUNDARY4294967293  10
+    .back_y                6   2
+    .bottom_z              4   2
+    .fractures             9   1
+    .front_y               5   2
+    .left_x                7   2
+    .right_x               8   2
+    .top_z                 3   2
+    
+     - Bulk elementary regions -
+    name                  id dim
+    domain                 1   3
+    fractures              2   2
+    
+     - Sets of regions -
+    name              contains regions
+    .BOUNDARY         [".fractures", ".top_z", ".bottom_z", ".front_y", ".back_y", ".left_x", ".right_x", ".IMPLICIT_BOUNDARY"]
+    ALL               [".fractures", "fractures", ".top_z", ".bottom_z", ".front_y", ".back_y", ".left_x", ".right_x", "domain", ".IMPLICIT_BOUNDARY"]
+    BULK              ["fractures", "domain"]
+    ---------------------------------------------
+    
+- -             [ Dbg , null, "00:00:02.960", "/src/mechanics/elasticity.cc", 362, "Elasticity" ]
+  - Mechanics: solution size 1080
+- -             [ Wrn , null, "00:00:02.962", "/src/io/output_time.cc", 161, "fix_main_file_extension" ]
+  - Renaming output file: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields to /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd
+- -             [ Log , null, "00:00:02.964", "/src/io/output_vtk.cc", 107, "init_from_input" ]
+  - Writing flow output file: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd ... 
+- -             [ Log , null, "00:00:02.964", "/src/io/output_vtk.cc", 584, "write_head" ]
+  - write_head: Writing output file (head) /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd ... 
+- -             [ Log , null, "00:00:02.964", "/src/io/output_vtk.cc", 590, "write_head" ]
+  - O.K.
+- -             [ Dbg , null, "00:00:03.627", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.628", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset0
+- -             [ Dbg , null, "00:00:03.628", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset1
+- -             [ Dbg , null, "00:00:03.628", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset0
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:03.645", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.646", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:03.646", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.646", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:03.658", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.658", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:03.658", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.658", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:03.658", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.659", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:03.659", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.659", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:03.659", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.659", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:03.691", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.691", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:03.691", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:03.691", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:03.697", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:03.697", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset0
+- -             [ Dbg , null, "00:00:03.698", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 1begin: 2
+- -             [ Dbg , null, "00:00:03.698", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset0
+- -             [ Dbg , null, "00:00:03.698", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 1begin: 6
+- -             [ Dbg , null, "00:00:03.698", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset0
+- -             [ Wrn , null, "00:00:03.838", "/src/io/output_time.cc", 161, "fix_main_file_extension" ]
+  - Renaming output file: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields to /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd
+- -             [ Log , null, "00:00:03.838", "/src/io/output_vtk.cc", 107, "init_from_input" ]
+  - Writing flow output file: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd ... 
+- -             [ Log , null, "00:00:03.838", "/src/io/output_vtk.cc", 584, "write_head" ]
+  - write_head: Writing output file (head) /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd ... 
+- -             [ Log , null, "00:00:03.838", "/src/io/output_vtk.cc", 590, "write_head" ]
+  - O.K.
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:04.245", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.246", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:04.247", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.247", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 79, "add_coupling" ]
+  - coupling bulk subset0
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 81, "add_coupling" ]
+  - coupling edge subset1
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.248", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset1
+- -             [ Wrn , null, "00:00:04.258", "/src/coupling/hm_iterative.cc", 253, "HM_Iterative" ]
+  - |
+    
+    Used default values of Fields for equation flow:
+    ----------------------------------------------------------------------------------------------------
+     Field name                     Default value       Apply on regions
+     anisotropy                     1.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     cross_section                  1.0                 .fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     conductivity                   1.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     sigma                          1.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     water_source_density           0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_type                        "none"              .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_pressure                    0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_flux                        0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_robin_sigma                 0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_switch_pressure             0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     init_pressure                  0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     storativity                    0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     extra_storativity              0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     extra_water_source_density     0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     init_piezo_head                0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_piezo_head                  0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_switch_piezo_head           0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     ref_pressure                   0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     ref_velocity                   0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     ref_divergence                 0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+    ----------------------------------------------------------------------------------------------------
+    
+- -             [ Dbg , null, "00:00:04.332", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 0begin: 0
+- -             [ Dbg , null, "00:00:04.333", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset0
+- -             [ Dbg , null, "00:00:04.343", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 1begin: 2
+- -             [ Dbg , null, "00:00:04.344", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset0
+- -             [ Dbg , null, "00:00:04.344", "/src/fields/eval_points.cc", 90, "add_boundary" ]
+  - boundary bulk subset: 1begin: 6
+- -             [ Dbg , null, "00:00:04.344", "/src/fields/eval_points.cc", 93, "add_boundary" ]
+  - boundary edge subset0
+- -             [ Wrn , null, "00:00:04.400", "/src/coupling/hm_iterative.cc", 297, "zero_time_step" ]
+  - |
+    
+    Used default values of Fields for equation coupling_iterative:
+    ----------------------------------------------------------------------------------------------------
+     Field name                     Default value       Apply on regions
+     biot_alpha                     0.0                 .fractures .top_z .bottom_z .front_y .back_y .left_x .right_x .IMPLICIT_BOUNDARY
+     fluid_density                  0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     gravity                        9.81                .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+    ----------------------------------------------------------------------------------------------------
+    
+- -             [ Msg , null, "00:00:04.573", "/src/flow/darcy_flow_lmh.cc", 677, "zero_time_step" ]
+  - Flow zero time step - steady case
+- -             [ Msg , null, "00:00:04.688", "/src/flow/darcy_flow_lmh.cc", 784, "solve_nonlinear" ]
+  - [nonlinear solver] norm of initial residual: 0.198201
+- -             [ Wrn , null, "00:00:04.711", "/src/io/observe.cc", 470, "output_time_frame" ]
+  - No observe fields for the observation stream: flow
+- -             [ Log , null, "00:00:04.711", "/src/io/output_time.cc", 229, "write_time_frame" ]
+  - Skipping output stream: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd in time: -1
+- -             [ Dbg , null, "00:00:04.712", "/src/io/output_mesh.cc", 155, "create_sub_mesh" ]
+  - Create output submesh containing only local elements.
+- -             [ Wrn , null, "00:00:04.747", "/src/mechanics/elasticity.cc", 579, "zero_time_step" ]
+  - |
+    
+    Used default values of Fields for equation mechanics:
+    ----------------------------------------------------------------------------------------------------
+     Field name                     Default value       Apply on regions
+     bc_type                        "traction"          .fractures fractures .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_displacement                0.0                 .fractures fractures .top_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_traction                    0.0                 .fractures fractures .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     bc_stress                      0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     load                           0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     young_modulus                  0.0                 .fractures .top_z .bottom_z .front_y .back_y .left_x .right_x .IMPLICIT_BOUNDARY
+     poisson_ratio                  0.0                 .fractures .top_z .bottom_z .front_y .back_y .left_x .right_x .IMPLICIT_BOUNDARY
+     fracture_sigma                 1.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     initial_stress                 0.0                 .fractures fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+     cross_section_min              0.0                 .fractures .top_z .bottom_z .front_y .back_y .left_x .right_x domain .IMPLICIT_BOUNDARY
+    ----------------------------------------------------------------------------------------------------
+    
+- -             [ Log , null, "00:00:08.615", "/src/la/linsys_PERMON.cc", 949, "solve" ]
+  - inserting petsc options: -qps_view_convergence -permon_qp_chain_view_kkt
+- -             [ Log , null, "00:00:12.557", "/src/la/linsys_PERMON.cc", 1132, "solve" ]
+  - convergence reason 3, number of iterations is 87
+- -             [ Msg , null, "00:00:12.567", "/src/mechanics/elasticity.cc", 598, "zero_time_step" ]
+  - [mech solver] lin. it: 87, reason: 3, residual: 3.46413e-08
+- -             [ Wrn , null, "00:00:12.633", "/src/io/observe.cc", 470, "output_time_frame" ]
+  - No observe fields for the observation stream: mechanics
+- -             [ Log , null, "00:00:12.633", "/src/io/output_time.cc", 229, "write_time_frame" ]
+  - Skipping output stream: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd in time: -1
+- -             [ Dbg , null, "00:00:12.633", "/src/io/output_mesh.cc", 155, "create_sub_mesh" ]
+  - Create output submesh containing only local elements.
+- -             [ Msg , null, "00:00:12.718", "/src/tools/time_governor.cc", 772, "view" ]
+  - TG[HM]:000001    t:    1.0000    dt:  1.000000    dt_int<  0.000000,  0.000000>    end_time: 1 end_fixed_time: 0 type: 0x0
+- -             [ Msg , null, "00:00:12.718", "/src/tools/time_governor.cc", 778, "view" ]
+  - |
+    Lower time step constraint [3.55271e-15]: Permanent minimal constraint, custom. 
+    Upper time step constraint [0]: Permanent maximal constraint, custom. 
+- -             [ Dbg , null, "00:00:12.745", "/src/mechanics/elasticity.cc", 706, "solve_linear_system" ]
+  - Mechanics: Assembling right hand side.
+- -             [ Log , null, "00:00:12.875", "/src/la/linsys_PERMON.cc", 949, "solve" ]
+  - inserting petsc options: -qps_view_convergence -permon_qp_chain_view_kkt
+- -             [ Log , null, "00:00:13.642", "/src/la/linsys_PERMON.cc", 1132, "solve" ]
+  - convergence reason 3, number of iterations is 1
+- -             [ Msg , null, "00:00:13.647", "/src/mechanics/elasticity.cc", 715, "solve_linear_system" ]
+  - [mech solver] lin. it: 1, reason: 3, residual: 3.4465e-08
+- -             [ Msg , null, "00:00:13.671", "/src/coupling/hm_iterative.cc", 394, "compute_iteration_error" ]
+  - |
+    HM Iteration 1 abs. difference: 0  rel. difference: 0
+    --------------------------------------------------------
+- -             [ Log , null, "00:00:13.718", "/src/io/output_time.cc", 229, "write_time_frame" ]
+  - Skipping output stream: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd in time: -1
+- -             [ Log , null, "00:00:13.765", "/src/io/output_time.cc", 214, "write_time_frame" ]
+  - Write output to output stream: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd for time: 0
+- -             [ Log , null, "00:00:13.769", "/src/io/output_vtk.cc", 187, "write_data" ]
+  - write_data: Writing output (frame: 0, rank: 0) file: mechanics_fields/mechanics_fields-000000.vtu ... 
+- -             [ Log , null, "00:00:13.827", "/src/io/output_vtk.cc", 198, "write_data" ]
+  - O.K.
+- -             [ Log , null, "00:00:13.924", "/src/io/output_time.cc", 229, "write_time_frame" ]
+  - Skipping output stream: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd in time: -1
+- -             [ Log , null, "00:00:13.924", "/src/io/output_vtk.cc", 603, "write_tail" ]
+  - write_tail: Writing output file (tail) /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/flow_fields.pvd ... 
+- -             [ Log , null, "00:00:13.924", "/src/io/output_vtk.cc", 608, "write_tail" ]
+  - O.K.
+- -             [ Log , null, "00:00:13.924", "/src/io/output_time.cc", 119, "~OutputTime" ]
+  - O.K.
+- -             [ Log , null, "00:00:13.931", "/src/io/output_time.cc", 214, "write_time_frame" ]
+  - Write output to output stream: /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd for time: 1
+- -             [ Log , null, "00:00:13.934", "/src/io/output_vtk.cc", 187, "write_data" ]
+  - write_data: Writing output (frame: 1, rank: 0) file: mechanics_fields/mechanics_fields-000001.vtu ... 
+- -             [ Log , null, "00:00:13.980", "/src/io/output_vtk.cc", 198, "write_data" ]
+  - O.K.
+- -             [ Log , null, "00:00:13.980", "/src/io/output_vtk.cc", 603, "write_tail" ]
+  - write_tail: Writing output file (tail) /home/stebel/dev/git/flow123d/feti-benchmarks/cube/output/mechanics_fields.pvd ... 
+- -             [ Log , null, "00:00:13.980", "/src/io/output_vtk.cc", 608, "write_tail" ]
+  - O.K.
+- -             [ Log , null, "00:00:13.980", "/src/io/output_time.cc", 119, "~OutputTime" ]
+  - O.K.

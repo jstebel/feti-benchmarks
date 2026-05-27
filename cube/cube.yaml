@@ -1,0 +1,65 @@
+# Test kontaktni mechaniky v ctvercove oblasti s nahodnymi puklinami
+# Okrajove podminky: dole u=0, vlevo a vpravo u.n=0, nahore f=(0,1e-6,0)
+# Sit mesh.msh obsahuje pukliny, ktere deli oblast na vice komponent
+# (nemelo by vadit, ale pro jistotu jsem udelal i variantu mesh_healed.msh,
+# kde 2d elementy tvori 1 souvislou komponentu).
+flow123d_version: 3.1.0
+problem: !Coupling_Sequential
+  description: Darcy flow through a fractured square domain. Two staedy states for X and Y pressure gradient BC are computed.
+  mesh:
+    mesh_file: mesh/cube.msh
+    partitioning:
+      graph_type: any_weight_lower_dim_cuts
+      fracture_coupling_weight: 1000
+  flow_equation: !Coupling_Iterative
+    input_fields:
+      - region: BULK
+        biot_alpha: 0
+    time:
+      end_time: 1
+    a_tol: 0
+    r_tol: 1e-4
+    flow_equation: !Flow_Darcy_LMH
+      nonlinear_solver:
+        max_it: 0
+        linear_solver: !Petsc
+          max_it: 0
+      input_fields:
+      output:
+        times: &output_times
+          - step: 1
+        add_input_times: False
+        fields: []
+      output_stream:
+        format: !vtk
+      balance:
+
+    mechanics_equation:
+      output_stream:
+        format: !vtk
+          variant: ascii
+      output:
+        times: *output_times
+        fields:
+          - displacement
+          - stress
+          - cross_section_updated
+          - region_id
+          - subdomain
+      solver:
+        a_tol: 1e-50
+        r_tol: 1e-8
+        options: -qps_view_convergence #-permon_qp_chain_view_kkt -flow123d_feti_local_hessian_spectrum -flow123d_feti_permon_nullspace_dimension -flow123d_feti_user_nullspace_dimension
+      feti: true
+      input_fields:
+        - region: domain
+          young_modulus: 50e9
+          poisson_ratio: 0.25
+
+        - region: [ .bottom_z ]
+          bc_type: displacement
+          bc_displacement: 0
+
+        - region: [ .top_z ]
+          bc_type: traction
+          bc_traction: [ 0, 0, -1e7 ]

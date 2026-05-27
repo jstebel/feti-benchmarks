@@ -1,0 +1,21 @@
+"time [s]"	"region"	"quantity [m(3)]"	"flux"	"flux_in"	"flux_out"	"mass"	"source"	"source_in"	"source_out"	"flux_increment"	"source_increment"	"flux_cumulative"	"source_cumulative"	"error"
+0	"fractures"	"water_volume"	0	0	0	0	0	0	0	0	0	0	0	0
+0	"domain"	"water_volume"	0	0	0	0	0	0	0	0	0	0	0	0
+0	".fractures"	"water_volume"	0	0	0	0	0	0	0	0	0	0	0	0
+0	".top_z"	"water_volume"	1	1	0	0	0	0	0	0	0	0	0	0
+0	".bottom_z"	"water_volume"	-1	0	-1	0	0	0	0	0	0	0	0	0
+0	".front_y"	"water_volume"	-9.26674e-18	4.00318e-17	-4.92985e-17	0	0	0	0	0	0	0	0	0
+0	".back_y"	"water_volume"	-6.49276e-18	2.82684e-17	-3.47612e-17	0	0	0	0	0	0	0	0	0
+0	".left_x"	"water_volume"	-2.01246e-17	2.7968e-17	-4.80926e-17	0	0	0	0	0	0	0	0	0
+0	".right_x"	"water_volume"	5.6537e-18	3.97631e-17	-3.41094e-17	0	0	0	0	0	0	0	0	0
+0	".IMPLICIT_BOUNDARY"	"water_volume"	-2.71051e-19	0.000471405	-0.000471405	0	0	0	0	0	0	0	0	0
+1	"fractures"	"water_volume"	0	0	0	0	0	0	0	0	0	0	0	0
+1	"domain"	"water_volume"	0	0	0	0	0	0	0	0	0	0	0	0
+1	".fractures"	"water_volume"	0	0	0	0	0	0	0	0	0	0	0	0
+1	".top_z"	"water_volume"	1	1	0	0	0	0	0	0	0	0	0	0
+1	".bottom_z"	"water_volume"	-1	0	-1	0	0	0	0	0	0	0	0	0
+1	".front_y"	"water_volume"	-9.26674e-18	4.00318e-17	-4.92985e-17	0	0	0	0	0	0	0	0	0
+1	".back_y"	"water_volume"	-6.49276e-18	2.82684e-17	-3.47612e-17	0	0	0	0	0	0	0	0	0
+1	".left_x"	"water_volume"	-2.01246e-17	2.7968e-17	-4.80926e-17	0	0	0	0	0	0	0	0	0
+1	".right_x"	"water_volume"	5.6537e-18	3.97631e-17	-3.41094e-17	0	0	0	0	0	0	0	0	0
+1	".IMPLICIT_BOUNDARY"	"water_volume"	-2.71051e-19	0.000471405	-0.000471405	0	0	0	0	0	0	0	0	0
