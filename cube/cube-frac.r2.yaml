@@ -1,8 +1,11 @@
 flow123d_version: 3.1.0
 problem: !Coupling_Sequential
-  description: Darcy flow through a fractured square domain. Two staedy states for X and Y pressure gradient BC are computed.
+  description: Darcy flow through a fractured square domain. Two steady states for X and Y pressure gradient BC are computed.
   mesh:
-    mesh_file: mesh/cube.msh
+    mesh_file: mesh/cube-frac-boundary.r2.msh
+    partitioning:
+      graph_type: any_weight_lower_dim_cuts
+      fracture_coupling_weight: 1000
   flow_equation: !Coupling_Iterative
     input_fields:
       - region: BULK
@@ -14,9 +17,9 @@ problem: !Coupling_Sequential
     flow_equation: !Flow_Darcy_LMH
       nonlinear_solver:
         max_it: 0
-        linear_solver: !Petsc
-          max_it: 0
       input_fields:
+        - region: fractures
+          cross_section: 1e-3
       output:
         times: &output_times
           - step: 1
@@ -38,20 +41,28 @@ problem: !Coupling_Sequential
           - cross_section_updated
           - region_id
           - subdomain
-      solver:
-        a_tol: 1e-50
+      solver: !Permon
+        a_tol: 1e-8
         r_tol: 1e-8
-        options: -qps_view_convergence #-permon_qp_chain_view_kkt -flow123d_feti_local_hessian_spectrum -flow123d_feti_permon_nullspace_dimension -flow123d_feti_user_nullspace_dimension
+        d_tol: 1e10
+        options: -qps_view_convergence -qps_max_it 1000 #-smalxe_qps_max_it 1000 -qps_smalxe_rho 1e0 -qps_divtol 1e20 -qps_view -permon_qp_chain_view_kkt #-flow123d_feti_local_hessian_spectrum -flow123d_feti_permon_nullspace_dimension -flow123d_feti_user_nullspace_dimension
+      contact: true
       feti: true
+      fix_nullspace: true
       input_fields:
         - region: domain
           young_modulus: 50e9
           poisson_ratio: 0.25
 
-        - region: .bottom_z
+        - region: [ fractures ]
+          young_modulus: 50e6
+          poisson_ratio: 0.25
+          cross_section_min: 1e-6
+
+        - region: [ .bottom_z ]
           bc_type: displacement
           bc_displacement: 0
 
-        - region: .top_z
+        - region: [ .top_z ]
           bc_type: traction
-          bc_traction: [ 0, 0, -1e7 ]
+          bc_traction: [ 0, 0, -3e8 ]

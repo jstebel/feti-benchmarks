@@ -2,7 +2,7 @@ flow123d_version: 4.0.0a01
 problem: !Coupling_Sequential
   description: 2D elastic model with crossing fractures.
   mesh:
-    mesh_file: mesh/square_1x1_xy.msh
+    mesh_file: mesh/square_1x1_xy.r4.msh
   flow_equation: !Coupling_Iterative
     input_fields:
       - region: BULK

@@ -2,7 +2,10 @@ flow123d_version: 4.0.0a01
 problem: !Coupling_Sequential
   description: 2D elastic model with crossing fractures.
   mesh:
-    mesh_file: mesh/square_1x1_xy.msh
+    mesh_file: mesh/square_1x1_frac_x.r1.msh
+    partitioning:
+      graph_type: any_weight_lower_dim_cuts
+      fracture_coupling_weight: 1000
   flow_equation: !Coupling_Iterative
     input_fields:
       - region: BULK
@@ -14,6 +17,8 @@ problem: !Coupling_Sequential
         nonlinear_solver:
           max_it: 0
         input_fields:
+          - region: [ fracture_x, fracture_xy ]
+            cross_section: 0.01
           - region: .BOUNDARY
             bc_type: dirichlet
             bc_pressure: 0
@@ -35,19 +40,25 @@ problem: !Coupling_Sequential
             - region_id
             - subdomain
         solver:
-          a_tol: 1e-50
+          a_tol: 1e-8
           r_tol: 1e-8
-          options: -qps_view_convergence
+          d_tol: 1e10
+          options: -qps_max_it 1000 -smalxe_qps_max_it 20000 -qps_view_convergence
+        contact: true
         feti: true
         fix_nullspace: true
         input_fields:
-          - region: bulk
+          - region: rock
             young_modulus: 1e9
             poisson_ratio: 0.25
+          - region: [ fracture_x, fracture_xy ]
+            young_modulus: 1e6
+            poisson_ratio: 0.25
+            cross_section_min: 0.01
 
-          - region: .bottom_y
+          - region: [.bottom]
             bc_type: displacement
             bc_displacement: [0,0,0]
-          - region: .top_y
+          - region: .top
             bc_type: traction
             bc_traction: [ 1e6, -1e7, 0 ]
