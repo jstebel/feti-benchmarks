@@ -4,8 +4,7 @@ problem: !Coupling_Sequential
   mesh:
     mesh_file: mesh/square_1x1_frac_x.msh
     partitioning:
-      graph_type: any_weight_lower_dim_cuts
-      fracture_coupling_weight: 1000
+      graph_type: any_contract_lower_dim_stars
   flow_equation: !Coupling_Iterative
     input_fields:
       - region: BULK
