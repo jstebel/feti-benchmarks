@@ -2,7 +2,7 @@ flow123d_version: 3.1.0
 problem: !Coupling_Sequential
   description: Darcy flow through a fractured square domain. Two staedy states for X and Y pressure gradient BC are computed.
   mesh:
-    mesh_file: mesh/cube.msh
+    mesh_file: mesh/cube.r3.msh
   flow_equation: !Coupling_Iterative
     input_fields:
       - region: BULK
@@ -43,6 +43,7 @@ problem: !Coupling_Sequential
         r_tol: 1e-8
         options: -qps_view_convergence #-permon_qp_chain_view_kkt -flow123d_feti_local_hessian_spectrum -flow123d_feti_permon_nullspace_dimension -flow123d_feti_user_nullspace_dimension
       feti: true
+      fix_nullspace: true
       input_fields:
         - region: domain
           young_modulus: 50e9

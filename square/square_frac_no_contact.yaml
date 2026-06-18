@@ -43,7 +43,6 @@ problem: !Coupling_Sequential
           r_tol: 1e-8
           d_tol: 1e10
           options: -qps_max_it 1000 -qps_view_convergence
-        contact: true
         feti: true
         fix_nullspace: true
         input_fields:
