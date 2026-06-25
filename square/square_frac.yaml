@@ -39,7 +39,7 @@ problem: !Coupling_Sequential
             - region_id
             - subdomain
         solver:
-          a_tol: 1e-8
+          a_tol: 1e-50
           r_tol: 1e-8
           d_tol: 1e10
           options: -qps_max_it 1000 -qps_view_convergence
