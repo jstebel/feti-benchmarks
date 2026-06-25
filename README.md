@@ -6,4 +6,4 @@ Each subdirectory contains:
 - scripts for running the tests on multiple processes and for evaluating the convergence
 
 Example usage:
-```cd square; sh run_test.sh square.r3.yaml; python3 report.py square.r3```
+```sh run_test.sh square/square.r3.yaml; python3 report.py square/square.r3; python3 plot.py square/square```
