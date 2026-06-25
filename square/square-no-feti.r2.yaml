@@ -1,0 +1,53 @@
+flow123d_version: 4.0.0a01
+problem: !Coupling_Sequential
+  description: 2D elastic model with crossing fractures.
+  mesh:
+    mesh_file: mesh/square_1x1_xy.r2.msh
+  flow_equation: !Coupling_Iterative
+    input_fields:
+      - region: BULK
+        biot_alpha: 0
+    time:
+      end_time: 1
+
+    flow_equation: !Flow_Darcy_LMH
+        nonlinear_solver:
+          max_it: 0
+        input_fields:
+          - region: .BOUNDARY
+            bc_type: dirichlet
+            bc_pressure: 0
+        output:
+          fields: []
+
+    mechanics_equation:
+        output_stream:
+          file: mechanics.pvd
+          format: !vtk
+            variant: ascii
+        output:
+          times:
+            - step: 1
+          fields:
+            - displacement
+            - stress
+            - cross_section_updated
+            - region_id
+            - subdomain
+        solver:
+          a_tol: 1e-50
+          r_tol: 1e-8
+          options: -qps_max_it 100000 -qps_view_convergence
+#        feti: true
+        fix_nullspace: true
+        input_fields:
+          - region: bulk
+            young_modulus: 1e9
+            poisson_ratio: 0.25
+
+          - region: .bottom_y
+            bc_type: displacement
+            bc_displacement: [0,0,0]
+          - region: .top_y
+            bc_type: traction
+            bc_traction: [ 1e6, -1e7, 0 ]
