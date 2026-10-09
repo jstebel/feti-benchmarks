@@ -26,5 +26,6 @@ do
 
     output_dir=$output_dir_base.$n
     mkdir -p $test_dir/$output_dir
-    $path_to_flow/bin/mpiexec -genv I_MPI_PIN=1 -genv I_MPI_PIN_DOMAIN=core -n $n $path_to_flow/bin/flow123d -s $testname -o $output_dir | tee "$test_dir/$output_dir/output.log"
+    hostname > "$test_dir/$output_dir/output.log"
+    $path_to_flow/bin/mpiexec -genv I_MPI_PIN=1 -genv I_MPI_PIN_DOMAIN=core -n $n $path_to_flow/bin/flow123d -s $testname -o $output_dir | tee -a "$test_dir/$output_dir/output.log"
 done

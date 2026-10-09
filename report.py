@@ -76,5 +76,5 @@ if __name__ == "__main__":
     input_path = Path(sys.argv[1])
     base_dir = input_path.parent if str(input_path.parent) != "." else Path(".")
     testname = input_path.name
-    NPROCS = [2, 4, 8, 16, 32, 64]
+    NPROCS = [2, 4, 8, 16, 32, 64, 128]
     parse_logs(base_dir, testname, NPROCS)
