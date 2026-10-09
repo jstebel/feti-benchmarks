@@ -64,4 +64,4 @@ problem: !Coupling_Sequential
 
         - region: [ .top_z ]
           bc_type: traction
-          bc_traction: [ 0, 0, -3e8 ]
+          bc_traction: [ 0, 0, -1e8 ]
