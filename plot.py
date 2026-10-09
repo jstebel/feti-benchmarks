@@ -1,4 +1,5 @@
 import argparse
+import math
 import os
 import re
 import sys
@@ -275,6 +276,23 @@ def plot_time_series(base_dir, testname, series, residual_tol):
             color=colors[idx],
             label=label,
         )
+
+        timed_points = sorted(
+            (nproc, duration)
+            for nproc, duration in zip(item["x"], item["duration"])
+            if math.isfinite(duration) and duration > 0
+        )
+        if timed_points:
+            first_nproc, first_duration = timed_points[0]
+            ideal_x = sorted(nproc for nproc in item["x"] if nproc >= first_nproc)
+            ax.plot(
+                ideal_x,
+                [first_duration * first_nproc / nproc for nproc in ideal_x],
+                color="grey",
+                linestyle=":",
+                linewidth=1.5,
+                zorder=1,
+            )
 
     ax.set_xlabel("nproc")
     ax.set_ylabel("Time [s]")
